@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  get 'welcome/about'
+
+  get 'welcome/contact'
+
+  get 'welcome/features'
+
+  get 'welcome/faq'
+
+  get 'welcome/pricing'
+
   resources :invoices do
   resources :invoices
   end
-  root 'invoices#index'
+  root to: 'invoices#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
