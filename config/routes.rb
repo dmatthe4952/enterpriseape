@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :invoices do
+  resources :invoices
   end
   root 'invoices#index'
   # The priority is based upon order of creation: first created -> highest priority.
