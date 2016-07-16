@@ -6,7 +6,7 @@ Powerful Software
 
 ### Welcome to the repository
 
-feel free to access my [linkedin site](http://www.linkedin.com/in/davidmatthewsit)
+feel free to access my [linkedin site](http://www.linkedin.com/in/davematthewsit)
 
 > ## Lorem ipsum dolor sit amet, consectetuer adipiscing elit
 >
