@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :invoices
+  resources :invoices do
+  end
   root 'invoices#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
