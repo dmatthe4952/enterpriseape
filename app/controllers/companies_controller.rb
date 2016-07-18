@@ -5,6 +5,11 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = Company.all
+
+    respond_to do |format|
+      format.html
+      format.csv {render text: @companies.to_csv}
+    end
   end
 
   # GET /companies/1
@@ -60,7 +65,7 @@ class CompaniesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
   def import
     Company.import(params[:file])
     redirect_to companies_path, notice: "Companies added successfully"
