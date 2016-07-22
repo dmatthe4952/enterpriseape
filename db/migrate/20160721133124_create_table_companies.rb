@@ -1,12 +1,10 @@
-class CreateCompanies < ActiveRecord::Migration
+class CreateTableCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
       t.string :name
       t.string :manager
       t.string :status
       t.integer :terms
-
-      t.timestamps null: false
     end
   end
 end
