@@ -59,7 +59,7 @@ class Invoices::PurchasesController < ApplicationController
   def destroy
     @purchase.destroy
     respond_to do |format|
-      format.html { redirect_to purchases_url, notice: 'Purchase was successfully destroyed.' }
+      format.html { redirect_to @invoice, notice: 'Purchase was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -67,11 +67,12 @@ class Invoices::PurchasesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_purchase
-      @purchase = Purchase.find(params[:id])
+      @invoice = Invoice.find(params[:invoice_id])
+      @purchase = @invoice.purchases.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def purchase_params
-      params.require(:purchase).permit(:name, :category, :quantity)
+      params.require(:purchase).permit(:name, :category, :quantity, :price)
     end
 end
