@@ -25,9 +25,9 @@
           <% @invoices.each do |invoice| %>
             <tr>
               <td><%= invoice.date.strftime('%Y/%m/%d') %></td>
-              <td><%= invoice.company_id %></td>
+              <td><%= invoice.company.name %></td>
               <td><%= invoice.tax %></td>
-              <td><%= invoice.employee_id %></td>
+              <td><%= invoice.employee.name %></td>
               <td><%= link_to 'Show', invoice, class:'btn btn-mini btn-default' %></td>
               <td><%= link_to 'Edit', edit_invoice_path(invoice), class:'btn btn-mini btn-success' %></td>
               <td><%= link_to 'Destroy', invoice, method: :delete, class:'btn btn-mini btn-danger', data: { confirm: 'Are you sure?' } %></td>
@@ -39,5 +39,14 @@
 </div>
 
 <br>
+<h3>Import Invoices </h3>
+<%= form_tag import_invoices_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag 'Upload Invoices', class: "btn btn-default"%>
+<%end%>
+
+<h3> Download Invoices </h3>
+<%= link_to "Report", invoices_path(format: 'csv'), class: "btn btn-default" %>
+
 
 <%= link_to 'New Invoice', new_invoice_path %>
