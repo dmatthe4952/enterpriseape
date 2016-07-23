@@ -20,7 +20,7 @@
   <div class="control-group">
     <%= f.label :company, class: 'control-label' %><br>
     <div class="controls">
-      <%= f.text_field :company %>
+      <%= collection_select(:invoice, :company_id, Company.all, :id, :name, {}, {:multiple => false, :include_blank => true}) %>
     </div>
   </div>
   <div class="control-group">
@@ -32,7 +32,13 @@
   <div class="control-group">
     <%= f.label :salesperson, class: 'control-label' %><br>
     <div class="controls">
-      <%= f.text_field :salesperson %>
+      <%= collection_select(:invoice, :employee_id, Employee.all, :id, :name, {}, {:multiple => false, :include_blank => true}) %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status_type, class: 'control-label' %><br>
+    <div class="controls">
+      <%=f.select :status_type, options_for_select([["",""],["Paid","Paid"], ["Pending", "Pending"]]), {incude_blank: true} %>
     </div>
   </div>
   <div class="contol-group">
