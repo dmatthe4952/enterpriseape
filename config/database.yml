@@ -21,5 +21,8 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  database: d2u0515arvbuth
+  user: sbdzisdzgeccaj
+  host: ec2-23-21-50-120.compute-1.amazonaws.com
+  url: postgres://sbdzisdzgeccaj:pw0HKt5JZotRfAvM9_FRNbs3no@ec2-23-21-50-120.compute-1.amazonaws.com:5432/d2u0515arvbuth
