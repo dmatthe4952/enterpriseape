@@ -1,7 +1,7 @@
 class Invoice < ActiveRecord::Base
   belongs_to :employee
   belongs_to :company
-  has_many :purchases
+  has_many :purchases, dependent: :destroy
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
