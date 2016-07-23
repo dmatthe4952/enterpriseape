@@ -6,6 +6,11 @@ class InvoicesController < ApplicationController
   def index
     @search = InvoiceSearch.new(params[:search])
     @invoices = @search.scope
+
+    respond_to do |format|
+      format.html
+      format.csv { render text: @invoices.to_csv}
+    end
   end
 
   # GET /invoices/1
@@ -60,6 +65,11 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url, notice: 'Invoice was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Invoice.import(params[:file])
+    redirect_to invoices_path, notice: "Invoices added successfully"
   end
 
   private
