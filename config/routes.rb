@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get 'welcome/pricing'
 
   resources :invoices do
+    resources :purchases, except:[:index], controller: 'invoices/purchases'
     resources :invoices
       collection { post :import}
     end
-    resources :purchases, except:[:index], controller: 'invoices/purchases'
   root to: 'invoices#index'
   end
