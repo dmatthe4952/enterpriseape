@@ -34,7 +34,9 @@
         </tr>
       </thead>
       <tbody>
+        <% grand_total = 0 %>
         <% @purchases.each do |purchase| %>
+        <% grand_total += (purchase.price * purchase.quantity)%>
         <tr>
           <td><h4><%= purchase.name%></h4></td>
           <td><h4><%= purchase.category%></h4></td>
@@ -46,6 +48,7 @@
         <%end%>
       </tbody>
     </table>
+    <p><h5>Grand Total: <%=number_to_currency(grand_total)%></h5></p>
   </div>
 </div>
 
